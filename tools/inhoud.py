@@ -6,8 +6,8 @@ pas je dit bestand aan en draai je `python tools/bouw_site.py` opnieuw.
 
 De teksten bij 'typering', 'wanneer' en 'oplevering' komen uit de kopregel van
 de documenten zelf. Wijzigt een document, neem de nieuwe tekst dan hier over,
-zodat site en document hetzelfde zeggen. Twee plekken wijken bewust af; die
-staan hieronder met een opmerking gemarkeerd.
+zodat site en document hetzelfde zeggen. Eén plek wijkt bewust af; die staat
+hieronder met een opmerking gemarkeerd.
 
 LET OP — de nummers horen bij de bestanden én bij de verwijzingen in de teksten.
 De documenten verwijzen onderling naar elkaar met hun nummer ("zie 09",
@@ -162,8 +162,6 @@ CLUSTERS = [
             {'nummer': 10, 'id': 'brainstorm', 'naam': 'Brainstorm',
              'typering': 'Eerst breed denken, dan kiezen.',
              'wanneer': 'Zodra je kansvraag staat en je richtingen zoekt.',
-             # Afwijking van het document: dat zegt hier nog 'met 10'. Onder de
-             # nieuwe nummering is Prioriteren nummer 11.
              'oplevering': 'Een gevulde ideeënlijst en een gekozen richting, '
                            'die je prioriteert met 11.',
              'docx': '10_Brainstorm.docx', 'pdf': ''},

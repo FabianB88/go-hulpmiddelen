@@ -76,30 +76,34 @@ bepaalt de plek op de pagina; het nummer blijft de identiteit van het document.
 - **De pdf's** bij alle veertien documenten. Zolang die er niet zijn, staat er
   alleen de Word-knop; er verschijnt geen "volgt nog" op de site.
 
-## Openstaand in de documenten
+## Verwijzingen in de documenten
 
-Bij het invoegen van Scrum op plek 03 is alles vanaf 04 opgeschoven. De
-verwijzingen in de teksten zijn grotendeels meegegaan, maar **drie zijn blijven
-staan op het oude nummer**:
+Bij het invoegen van Scrum op plek 03 is alles vanaf 04 opgeschoven. Drie
+verwijzingen bleven daarbij op hun oude nummer staan; die zijn **hier in de
+repo gecorrigeerd** met `python-docx`, waarbij alleen de tekst binnen de
+betreffende opmaak-run is vervangen:
 
-| Document | Staat er | Moet zijn |
+| Document | Was | Is nu |
 |---|---|---|
 | 09 Projectvoorstel | "Werk uit in 04 Stakeholderanalyse" | 05 Stakeholderanalyse |
-| 10 Brainstorm | "de rest prioriteren met 10 Prioriteren" | 11 Prioriteren |
-| 10 Brainstorm (kopregel) | "die je prioriteert met 10" | met 11 |
+| 10 Brainstorm | "prioriteren met 10 Prioriteren" | met 11 Prioriteren |
+| 10 Brainstorm, kopregel | "die je prioriteert met 10" | met 11 |
 
-Op de site staat de juiste versie; in de Word-bestanden nog niet. Laat dit bij
-de volgende ronde in de bron corrigeren.
+**Let op:** de bron waaruit deze documenten gegenereerd worden, is hiermee niet
+gerepareerd. Wordt de set opnieuw aangeleverd, dan komen deze drie fouten terug
+tenzij ze daar ook zijn aangepast.
 
-Verder wijkt de site op één punt bewust af: bij **07 Probleemdefinitie** staat
-op de site "getoetst bij je opdrachtgever en/of clusterlead", terwijl het
-document alleen "opdrachtgever" zegt.
-
-**Controleren na een hernummering:** lees de documenten uit met `python-docx`,
+**Controleren na een hernummering.** Lees de documenten uit met `python-docx`,
 zoek op patronen als `zie \d\d` en `\d\d Naam`, en toets elk nummer tegen de
-lijst in `tools/inhoud.py`. Zo vind je stille fouten voordat iemand erop klikt.
+lijst in `tools/inhoud.py`. Stand nu: dertien naamverwijzingen kloppen, nul
+fouten, en de acht kale nummerverwijzingen wijzen alle acht naar het juiste
+hulpmiddel.
 
-## Verhouding tot de e-learning## Verhouding tot de e-learning
+De site wijkt op één punt bewust af van de documenten: bij **07
+Probleemdefinitie** staat op de site "getoetst bij je opdrachtgever en/of
+clusterlead", terwijl het document alleen "opdrachtgever" zegt.
+
+## Verhouding tot de e-learning## Verhouding tot de e-learning## Verhouding tot de e-learning
 
 De e-learning [AI leren gebruiken](https://fabianb88.github.io/ai-gebruiken-elearning/)
 is primair. *Slim AI gebruiken* en *AI naar website* zijn losse hulpmiddelen die
