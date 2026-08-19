@@ -61,7 +61,8 @@ een echte pagina. Behandel dat als uitzondering, niet als beleid.
 
 ## Nummering — niet aanpassen
 
-De nummers 01 tot en met 13 zijn **vast**. De documenten verwijzen onderling
+De nummers 01 tot en met 14 horen bij de bestanden én bij de
+verwijzingen in de teksten. De documenten verwijzen onderling
 naar elkaar met hun nummer: *"prioriteer met 10"*, *"zie 09"*, *"terugleggen in
 je projectvoorstel (zie 08)"*. Hernummeren breekt die verwijzingen stuk, en dat
 merk je pas als iemand erop klikt.
@@ -72,17 +73,33 @@ bepaalt de plek op de pagina; het nummer blijft de identiteit van het document.
 
 ## Nog te leveren
 
-- **Een hulpmiddel over Scrum.** Krijgt **nummer 14** en komt inhoudelijk in het
-  cluster *Aanpak* te staan. Vraag het als `14_Scrum.docx` aan te leveren en
-  **niet** als `04`: de bestaande dertien verwijzen onderling naar elkaar met
-  hun nummer, dus alles een plek opschuiven breekt die verwijzingen. In
-  `tools/inhoud.py` staat het blok al klaar, uitgecommentarieerd.
-- **De pdf's** bij alle dertien documenten.
+- **De pdf's** bij alle veertien documenten. Zolang die er niet zijn, staat er
+  alleen de Word-knop; er verschijnt geen "volgt nog" op de site.
 
-Zolang iets ontbreekt, staat het **niet** op de site. Geen placeholders, geen
-"volgt nog" — wat er niet is, wordt gewoon niet getoond.
+## Openstaand in de documenten
 
-## Verhouding tot de e-learning
+Bij het invoegen van Scrum op plek 03 is alles vanaf 04 opgeschoven. De
+verwijzingen in de teksten zijn grotendeels meegegaan, maar **drie zijn blijven
+staan op het oude nummer**:
+
+| Document | Staat er | Moet zijn |
+|---|---|---|
+| 09 Projectvoorstel | "Werk uit in 04 Stakeholderanalyse" | 05 Stakeholderanalyse |
+| 10 Brainstorm | "de rest prioriteren met 10 Prioriteren" | 11 Prioriteren |
+| 10 Brainstorm (kopregel) | "die je prioriteert met 10" | met 11 |
+
+Op de site staat de juiste versie; in de Word-bestanden nog niet. Laat dit bij
+de volgende ronde in de bron corrigeren.
+
+Verder wijkt de site op één punt bewust af: bij **07 Probleemdefinitie** staat
+op de site "getoetst bij je opdrachtgever en/of clusterlead", terwijl het
+document alleen "opdrachtgever" zegt.
+
+**Controleren na een hernummering:** lees de documenten uit met `python-docx`,
+zoek op patronen als `zie \d\d` en `\d\d Naam`, en toets elk nummer tegen de
+lijst in `tools/inhoud.py`. Zo vind je stille fouten voordat iemand erop klikt.
+
+## Verhouding tot de e-learning## Verhouding tot de e-learning
 
 De e-learning [AI leren gebruiken](https://fabianb88.github.io/ai-gebruiken-elearning/)
 is primair. *Slim AI gebruiken* en *AI naar website* zijn losse hulpmiddelen die
