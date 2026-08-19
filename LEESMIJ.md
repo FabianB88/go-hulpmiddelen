@@ -70,6 +70,18 @@ Komt er een hulpmiddel bij, geef het dan nummer 14 en zet het achteraan — ook
 als het inhoudelijk ergens in het midden hoort. De clustering op deze site
 bepaalt de plek op de pagina; het nummer blijft de identiteit van het document.
 
+## Nog te leveren
+
+- **Een hulpmiddel over Scrum.** Krijgt **nummer 14** en komt inhoudelijk in het
+  cluster *Aanpak* te staan. Vraag het als `14_Scrum.docx` aan te leveren en
+  **niet** als `04`: de bestaande dertien verwijzen onderling naar elkaar met
+  hun nummer, dus alles een plek opschuiven breekt die verwijzingen. In
+  `tools/inhoud.py` staat het blok al klaar, uitgecommentarieerd.
+- **De pdf's** bij alle dertien documenten.
+
+Zolang iets ontbreekt, staat het **niet** op de site. Geen placeholders, geen
+"volgt nog" — wat er niet is, wordt gewoon niet getoond.
+
 ## Verhouding tot de e-learning
 
 De e-learning [AI leren gebruiken](https://fabianb88.github.io/ai-gebruiken-elearning/)

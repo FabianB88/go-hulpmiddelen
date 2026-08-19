@@ -83,6 +83,17 @@ CLUSTERS = [
                      'Pak je iets op dat je zelf hebt bedacht en waar niemand '
                      'anders over gaat, sla dit dan over.',
              'docx': '03_Opdrachtgever-afspraken.docx', 'pdf': ''},
+            # NOG TE LEVEREN — het hulpmiddel over Scrum. Zodra het bestand
+            # er is: dit blok uitcommentarieren, de teksten overnemen uit de
+            # kopregel van het document, en het bestand in bestanden/ zetten.
+            # Vraag het document als nummer 14 aan te leveren, niet als 04:
+            # de bestaande dertien verwijzen onderling naar elkaar met hun
+            # nummer, dus alles opschuiven breekt die verwijzingen.
+            # {'nummer': 14, 'id': 'scrum', 'naam': 'Scrum',
+            #  'typering': '',
+            #  'wanneer': '',
+            #  'oplevering': '',
+            #  'docx': '14_Scrum.docx', 'pdf': ''},
         ],
     },
     {
