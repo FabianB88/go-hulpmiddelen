@@ -164,6 +164,21 @@ def bouw():
                 pagina('%s — %s' % (c['naam'], inhoud.TITEL), hoofd,
                        actief=c['id']))
 
+    # ------------------------------------------------------------ omleidingen
+    # Oude clusternamen blijven werken. Zonder deze stubs krijgt iedereen met
+    # een bookmark of een pagina in zijn cache een 404 van GitHub Pages.
+    for oud, nieuw in sorted(getattr(inhoud, 'OMLEIDINGEN', {}).items()):
+        schrijf('%s.html' % oud,
+                '<!DOCTYPE html>\n<html lang="nl">\n<head>\n'
+                '<meta charset="utf-8">\n'
+                '<meta http-equiv="refresh" content="0; url=%s.html">\n'
+                '<link rel="canonical" href="%s.html">\n'
+                '<title>Verplaatst — %s</title>\n'
+                '</head>\n<body>\n'
+                '<p>Deze pagina is verplaatst. '
+                '<a href="%s.html">Ga verder naar de nieuwe pagina</a>.</p>\n'
+                '</body>\n</html>\n' % (nieuw, nieuw, inhoud.TITEL, nieuw))
+
     schrijf('stijl.css', STIJL)
     io.open(os.path.join(UIT, '.nojekyll'), 'w').write('')
 

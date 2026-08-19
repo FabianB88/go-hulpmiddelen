@@ -179,6 +179,16 @@ CLUSTERS = [
     },
 ]
 
+# Oude adressen die naar een nieuwe pagina moeten wijzen.
+# De clusters heetten eerst anders; bookmarks, links vanuit de app en pagina's
+# in iemands browsercache verwijzen nog naar de oude namen. Laat deze staan.
+OMLEIDINGEN = {
+    'aanpak-kiezen': 'aanpak',
+    'bedenken-en-kiezen': 'ontwikkelen',
+    'onderbouwen': 'scherpstellen',
+    'ai-inzetten': 'doorlopend',
+}
+
 # Verwijzingen onderaan de site
 VERWIJZINGEN = [
     {'naam': 'AI leren gebruiken',
