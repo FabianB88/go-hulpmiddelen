@@ -37,13 +37,13 @@ body {
 .overslaan:focus { left: 0; top: 0; z-index: 10; }
 
 /* Kop */
-.kop { background: var(--kaart); border-bottom: 1px solid var(--rand); padding: 2rem 0 1.5rem; }
+.kop { background: var(--kaart); border-bottom: 1px solid var(--rand); padding: 2.5rem 0 2rem; }
 .kop__titel {
-  display: inline-block; font-size: 1.6rem; font-weight: 700;
-  color: var(--tekst); text-decoration: none; letter-spacing: -.01em;
+  display: inline-block; margin: 0; font-size: 1.75rem; font-weight: 700;
+  color: var(--tekst); text-decoration: none; letter-spacing: -.02em;
 }
 .kop__titel:hover { color: var(--accent-donker); }
-.kop__ondertitel { margin: .35rem 0 0; color: var(--tekst-secundair); }
+.kop__ondertitel { margin: .45rem 0 0; color: var(--tekst-secundair); font-size: 1.02rem; }
 
 /* Navigatie */
 .nav { background: var(--kaart); border-bottom: 1px solid var(--rand); position: sticky; top: 0; z-index: 5; }
@@ -56,10 +56,15 @@ body {
 .nav__link--actief { background: var(--accent-licht); color: var(--accent-donker); }
 
 /* Inhoud */
-main { padding: 2rem 1.25rem 3rem; }
-.titel { font-size: 1.9rem; margin: .25rem 0 .5rem; letter-spacing: -.02em; }
-.inleiding { color: var(--tekst-secundair); max-width: 60ch; margin-top: 0; }
-.kruimel { font-size: .9rem; color: var(--tekst-secundair); margin: 0 0 .5rem; }
+/* main draagt ook .omhulsel; die klasse wint op specificiteit, dus hier
+   expliciet main.omhulsel gebruiken — anders is de bovenmarge nul. */
+main.omhulsel { padding: 3rem 1.25rem 3.5rem; }
+.titel { font-size: 1.9rem; margin: .5rem 0 .75rem; letter-spacing: -.02em; }
+.inleiding {
+  color: var(--tekst-secundair); max-width: 62ch;
+  font-size: 1.08rem; line-height: 1.75; margin: 0 0 1.75rem;
+}
+.kruimel { font-size: .9rem; color: var(--tekst-secundair); margin: 0 0 .75rem; }
 .kruimel a { color: var(--tekst-secundair); }
 
 .kaart {
@@ -68,7 +73,7 @@ main { padding: 2rem 1.25rem 3rem; }
 }
 
 .kader {
-  margin: 1.25rem 0 0; padding: 1.1rem 1.25rem;
+  margin: 0 0 .5rem; padding: 1.25rem 1.4rem;
   background: var(--accent-licht); border: 1px solid var(--accent-medium);
   border-radius: 14px; max-width: 68ch;
 }
@@ -80,7 +85,7 @@ main { padding: 2rem 1.25rem 3rem; }
 }
 
 /* Startpagina */
-.raster { display: grid; gap: 1rem; grid-template-columns: 1fr; margin-top: 1.5rem; }
+.raster { display: grid; gap: 1rem; grid-template-columns: 1fr; margin-top: 2rem; }
 @media (min-width: 640px) { .raster { grid-template-columns: 1fr 1fr; } }
 .cluster { display: block; text-decoration: none; color: inherit; }
 .cluster:hover { border-color: var(--accent-medium); }

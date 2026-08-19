@@ -30,7 +30,7 @@ def schrijf(naam, tekst):
     io.open(pad, 'w', encoding='utf-8').write(tekst)
 
 
-def pagina(titel, hoofd, actief=None, terug=False):
+def pagina(titel, hoofd, actief=None, is_start=False):
     """Zet een complete HTML-pagina in elkaar."""
     nav = ''.join(
         '<a class="nav__link%s" href="%s.html"%s>%s</a>'
@@ -49,7 +49,7 @@ def pagina(titel, hoofd, actief=None, terug=False):
         '<a class="overslaan" href="#inhoud">Ga direct naar de inhoud</a>\n'
         '<header class="kop">\n'
         '  <div class="omhulsel">\n'
-        '    <a class="kop__titel" href="index.html">%s</a>\n'
+        '    %s\n'
         '    <p class="kop__ondertitel">%s</p>\n'
         '  </div>\n'
         '</header>\n'
@@ -62,10 +62,18 @@ def pagina(titel, hoofd, actief=None, terug=False):
         '<main class="omhulsel" id="inhoud">\n%s</main>\n'
         '<footer class="voet">\n  <div class="omhulsel">%s</div>\n</footer>\n'
         '</body>\n</html>\n'
-        % (esc(titel), esc(inhoud.TITEL), esc(inhoud.ONDERTITEL),
+        % (esc(titel), koptitel(is_start), esc(inhoud.ONDERTITEL),
            '' if actief else ' nav__link--actief',
            '' if actief else ' aria-current="page"',
            nav, hoofd, voetregel()))
+
+
+def koptitel(is_start):
+    """Op de startpagina is de sitetitel de h1; elders een link terug."""
+    if is_start:
+        return '<h1 class="kop__titel">%s</h1>' % esc(inhoud.TITEL)
+    return ('<a class="kop__titel" href="index.html">%s</a>'
+            % esc(inhoud.TITEL))
 
 
 def voetregel():
@@ -158,7 +166,7 @@ def bouw():
              '<aside class="kader">%s</aside>\n'
              '<div class="raster">%s</div>\n'
              % (esc(inhoud.INLEIDING), inhoud.KADER, ''.join(kaarten)))
-    schrijf('index.html', pagina(inhoud.TITEL, start))
+    schrijf('index.html', pagina(inhoud.TITEL, start, is_start=True))
 
     # ------------------------------------------------------- clusterpagina's
     teller = 0
@@ -265,13 +273,13 @@ body {
 .overslaan:focus { left: 0; top: 0; z-index: 10; }
 
 /* Kop */
-.kop { background: var(--kaart); border-bottom: 1px solid var(--rand); padding: 2rem 0 1.5rem; }
+.kop { background: var(--kaart); border-bottom: 1px solid var(--rand); padding: 2.5rem 0 2rem; }
 .kop__titel {
-  display: inline-block; font-size: 1.6rem; font-weight: 700;
-  color: var(--tekst); text-decoration: none; letter-spacing: -.01em;
+  display: inline-block; margin: 0; font-size: 1.75rem; font-weight: 700;
+  color: var(--tekst); text-decoration: none; letter-spacing: -.02em;
 }
 .kop__titel:hover { color: var(--accent-donker); }
-.kop__ondertitel { margin: .35rem 0 0; color: var(--tekst-secundair); }
+.kop__ondertitel { margin: .45rem 0 0; color: var(--tekst-secundair); font-size: 1.02rem; }
 
 /* Navigatie */
 .nav { background: var(--kaart); border-bottom: 1px solid var(--rand); position: sticky; top: 0; z-index: 5; }
@@ -284,10 +292,15 @@ body {
 .nav__link--actief { background: var(--accent-licht); color: var(--accent-donker); }
 
 /* Inhoud */
-main { padding: 2rem 1.25rem 3rem; }
-.titel { font-size: 1.9rem; margin: .25rem 0 .5rem; letter-spacing: -.02em; }
-.inleiding { color: var(--tekst-secundair); max-width: 60ch; margin-top: 0; }
-.kruimel { font-size: .9rem; color: var(--tekst-secundair); margin: 0 0 .5rem; }
+/* main draagt ook .omhulsel; die klasse wint op specificiteit, dus hier
+   expliciet main.omhulsel gebruiken — anders is de bovenmarge nul. */
+main.omhulsel { padding: 3rem 1.25rem 3.5rem; }
+.titel { font-size: 1.9rem; margin: .5rem 0 .75rem; letter-spacing: -.02em; }
+.inleiding {
+  color: var(--tekst-secundair); max-width: 62ch;
+  font-size: 1.08rem; line-height: 1.75; margin: 0 0 1.75rem;
+}
+.kruimel { font-size: .9rem; color: var(--tekst-secundair); margin: 0 0 .75rem; }
 .kruimel a { color: var(--tekst-secundair); }
 
 .kaart {
@@ -296,7 +309,7 @@ main { padding: 2rem 1.25rem 3rem; }
 }
 
 .kader {
-  margin: 1.25rem 0 0; padding: 1.1rem 1.25rem;
+  margin: 0 0 .5rem; padding: 1.25rem 1.4rem;
   background: var(--accent-licht); border: 1px solid var(--accent-medium);
   border-radius: 14px; max-width: 68ch;
 }
@@ -308,7 +321,7 @@ main { padding: 2rem 1.25rem 3rem; }
 }
 
 /* Startpagina */
-.raster { display: grid; gap: 1rem; grid-template-columns: 1fr; margin-top: 1.5rem; }
+.raster { display: grid; gap: 1rem; grid-template-columns: 1fr; margin-top: 2rem; }
 @media (min-width: 640px) { .raster { grid-template-columns: 1fr 1fr; } }
 .cluster { display: block; text-decoration: none; color: inherit; }
 .cluster:hover { border-color: var(--accent-medium); }
