@@ -36,8 +36,8 @@ INLEIDING = (
 # Kader boven aan de startpagina. Staat los van de inleiding omdat het de
 # belangrijkste boodschap is en niet weggelezen mag worden.
 KADER = (
-    '<b>Niet elk hulpmiddel is voor iedereen nuttig.</b> Werk je zonder '
-    'opdrachtgever, dan sla je 04 over. Gaat je vraagstuk niet over een '
+    '<b>Niet elk hulpmiddel is voor iedereen nuttig.</b> Werk je niet voor '
+    'een externe opdrachtgever, dan sla je 04 over. Gaat je vraagstuk niet over een '
     'materiaalstroom, dan heb je 06 en 08 niet nodig. Hoef je niemand te '
     'overtuigen, dan is 09 overbodig. Kijk bij elk hulpmiddel naar '
     '<i>Wanneer pak je dit</i> en beslis zelf of het aan de orde is. Twee tot '
@@ -95,10 +95,9 @@ CLUSTERS = [
                         'project aan.',
              'oplevering': 'Ingevulde intake, vastgelegde afspraken en een '
                            'afstemmingsritme dat je deelt.',
-             'noot': 'Alleen aan de orde als er iemand is die de opdracht '
-                     'geeft — een externe opdrachtgever, of je clusterlead. '
-                     'Pak je iets op dat je zelf hebt bedacht en waar niemand '
-                     'anders over gaat, sla dit dan over.',
+             'noot': 'Alleen voor projecten met een <b>externe '
+                     'opdrachtgever</b>. Werk je aan iets binnen het Green '
+                     'Office zelf, sla dit dan over.',
              'docx': '04_Opdrachtgever-afspraken.docx', 'pdf': ''},
             {'nummer': 5, 'id': 'stakeholderanalyse',
              'naam': 'Stakeholderanalyse',
