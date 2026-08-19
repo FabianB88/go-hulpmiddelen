@@ -21,17 +21,20 @@ python tools/bouw_site.py
 De generator meldt na afloop welke hulpmiddelen nog geen download hebben en
 welke velden nog leeg zijn.
 
-## Een bestand toevoegen
+## Een bestand toevoegen of bijwerken
 
-1. Zet de `.docx` en de `.pdf` in `bestanden/`.
-2. Vul in `tools/inhoud.py` bij het betreffende hulpmiddel de velden `docx` en
-   `pdf` met de bestandsnamen.
-3. Vul ook `wanneer`, `oplevering` en `tijd` in.
-4. `python tools/bouw_site.py`, daarna committen en pushen.
+1. Zet de `.docx` (en de `.pdf` zodra die er is) in `bestanden/`.
+2. Vul in `tools/inhoud.py` bij het hulpmiddel de velden `docx` en `pdf` met de
+   bestandsnamen.
+3. `python tools/bouw_site.py`, daarna committen en pushen.
 
-Lege velden verschijnen op de site als **Nog in te vullen**, en een hulpmiddel
-zonder bestand krijgt een blokje dat zegt dat de download nog komt. Er belandt
-dus nooit verzonnen tekst op de pagina — wat ontbreekt, is zichtbaar.
+De teksten bij **typering**, **wanneer** en **oplevering** komen letterlijk uit
+de kopregel van het document zelf. Wijzig je een document, neem de nieuwe tekst
+dan over in `tools/inhoud.py`, zodat site en document hetzelfde zeggen.
+
+De generator meldt na afloop wat er nog ontbreekt: hulpmiddelen zonder
+download, lege velden, en documenten waar nog geen pdf bij zit. Op de site
+verschijnt daar niets van — wat er niet is, wordt gewoon niet getoond.
 
 ## Publiceren
 
@@ -46,19 +49,26 @@ git add -A && git commit -m "update" && git push
 
 De meeste hulpmiddelen zijn canvassen en werkbladen die je **invult** — daar is
 het Word-bestand het product, niet een leespagina. De clusterpagina's zijn er om
-te kiezen: wat is het, wanneer pak je het, wat levert het op. De pdf ernaast
-dekt het doorlezen af, ook binnen de app, want een webview toont een pdf inline
-en een Word-bestand niet.
+te kiezen: wat is het, wanneer pak je het, wat levert het op.
+
+Er komt een **pdf naast elke `.docx`**, want een webview toont een pdf inline en
+een Word-bestand niet. Dat dekt het doorlezen binnen de app af zonder dat er één
+webpagina per hulpmiddel gebouwd hoeft te worden. Die pdf's zijn er nog niet;
+tot die tijd staat er alleen de Word-knop.
 
 Blijkt één hulpmiddel puur leesmateriaal dat niemand invult, maak van dát ene
 een echte pagina. Behandel dat als uitzondering, niet als beleid.
 
-## Nummering
+## Nummering — niet aanpassen
 
-De nummers op de site zijn **weergavevolgorde**, niet de identiteit van een
-hulpmiddel. Verwijs in de documenten naar de **naam** van een hulpmiddel, nooit
-naar het nummer — bij de minorhandleidingen is die nummering al eens uit de pas
-gaan lopen, en na een herindeling klopt hij opnieuw niet.
+De nummers 01 tot en met 13 zijn **vast**. De documenten verwijzen onderling
+naar elkaar met hun nummer: *"prioriteer met 10"*, *"zie 09"*, *"terugleggen in
+je projectvoorstel (zie 08)"*. Hernummeren breekt die verwijzingen stuk, en dat
+merk je pas als iemand erop klikt.
+
+Komt er een hulpmiddel bij, geef het dan nummer 14 en zet het achteraan — ook
+als het inhoudelijk ergens in het midden hoort. De clustering op deze site
+bepaalt de plek op de pagina; het nummer blijft de identiteit van het document.
 
 ## Verhouding tot de e-learning
 

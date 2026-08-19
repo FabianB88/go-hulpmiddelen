@@ -112,13 +112,12 @@ def hulpmiddelblok(nummer, h):
         '    <h2 class="hulpmiddel__naam">%s</h2>\n'
         '  </div>\n'
         '  <p class="hulpmiddel__typering">%s</p>\n'
-        '  <dl class="velden">%s%s%s</dl>\n'
+        '  <dl class="velden">%s%s</dl>\n'
         '  %s\n'
         '</article>\n'
         % (h['id'], nummer, esc(h['naam']), esc(h['typering']),
            veld('Wanneer pak je dit', h['wanneer']),
            veld('Wat lever je op', h['oplevering']),
-           veld('Hoeveel tijd', h['tijd']),
            downloads(h)))
 
 
@@ -154,7 +153,7 @@ def bouw():
         blokken = []
         for h in c['hulpmiddelen']:
             teller += 1
-            blokken.append(hulpmiddelblok(teller, h))
+            blokken.append(hulpmiddelblok(h['nummer'], h))
         hoofd = ('<p class="kruimel"><a href="index.html">Overzicht</a> '
                  '<span aria-hidden="true">›</span> %s</p>\n'
                  '<h1 class="titel">%s</h1>\n'
@@ -184,7 +183,9 @@ def bouw():
     ontbreekt = [h['naam'] for c in inhoud.CLUSTERS for h in c['hulpmiddelen']
                  if not h['docx']]
     leeg = [h['naam'] for c in inhoud.CLUSTERS for h in c['hulpmiddelen']
-            if not (h['wanneer'] and h['oplevering'] and h['tijd'])]
+            if not (h['wanneer'] and h['oplevering'])]
+    geenpdf = [h['naam'] for c in inhoud.CLUSTERS for h in c['hulpmiddelen']
+               if h['docx'] and not h['pdf']]
 
     print('%d clusters, %d hulpmiddelen, %d bestanden gekopieerd'
           % (len(inhoud.CLUSTERS), teller, gekopieerd))
@@ -192,6 +193,8 @@ def bouw():
         print('  nog geen download: %s' % ', '.join(ontbreekt))
     if leeg:
         print('  nog in te vullen velden: %s' % ', '.join(leeg))
+    if geenpdf:
+        print('  nog geen pdf: %s' % ', '.join(geenpdf))
 
 
 STIJL = """/* Green Office — palet uit de Flutter-app (lib/theme.dart, GOColors) */
@@ -205,8 +208,8 @@ STIJL = """/* Green Office — palet uit de Flutter-app (lib/theme.dart, GOColor
   --tekst-secundair: #7A6E66;
   --tekst-gedimd: #B0A49A;
   --accent: #5C7A5A;
-  --accent-donker: #47613F;
-  --accent-licht: #EDF3EC;
+  --accent-donker: #3D5C3B;
+  --accent-licht: #EFF4EE;
   --accent-medium: #D0E3CF;
   --schaduw: 0 2px 12px rgba(0, 0, 0, .08);
 }
