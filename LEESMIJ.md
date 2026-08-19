@@ -1,8 +1,7 @@
 # Hulpmiddelen — Green Office
 
 Losse werkvormen, canvassen en handleidingen voor Green Office-medewerkers,
-gebundeld per cluster. Elk hulpmiddel is een Word-bestand om in te vullen, met
-een pdf ernaast om snel door te lezen.
+gebundeld per cluster. Elk hulpmiddel is een Word-bestand om in te vullen.
 
 Draait als statische site op GitHub Pages en is bedoeld om **embedded in de
 Green Office-app** getoond te worden. Het palet komt daarom uit
@@ -18,23 +17,20 @@ gegenereerd en overschreven; bewerk die dus nooit met de hand.
 python tools/bouw_site.py
 ```
 
-De generator meldt na afloop welke hulpmiddelen nog geen download hebben en
-welke velden nog leeg zijn.
-
 ## Een bestand toevoegen of bijwerken
 
-1. Zet de `.docx` (en de `.pdf` zodra die er is) in `bestanden/`.
-2. Vul in `tools/inhoud.py` bij het hulpmiddel de velden `docx` en `pdf` met de
-   bestandsnamen.
+1. Zet de `.docx` in `bestanden/`.
+2. Vul in `tools/inhoud.py` bij het hulpmiddel het veld `docx` met de
+   bestandsnaam.
 3. `python tools/bouw_site.py`, daarna committen en pushen.
 
 De teksten bij **typering**, **wanneer** en **oplevering** komen letterlijk uit
 de kopregel van het document zelf. Wijzig je een document, neem de nieuwe tekst
 dan over in `tools/inhoud.py`, zodat site en document hetzelfde zeggen.
 
-De generator meldt na afloop wat er nog ontbreekt: hulpmiddelen zonder
-download, lege velden, en documenten waar nog geen pdf bij zit. Op de site
-verschijnt daar niets van — wat er niet is, wordt gewoon niet getoond.
+De generator meldt na afloop wat er nog ontbreekt: hulpmiddelen zonder download
+en lege velden. Op de site verschijnt daar niets van — wat er niet is, wordt
+gewoon niet getoond.
 
 ## Publiceren
 
@@ -51,10 +47,15 @@ De meeste hulpmiddelen zijn canvassen en werkbladen die je **invult** — daar i
 het Word-bestand het product, niet een leespagina. De clusterpagina's zijn er om
 te kiezen: wat is het, wanneer pak je het, wat levert het op.
 
-Er komt een **pdf naast elke `.docx`**, want een webview toont een pdf inline en
-een Word-bestand niet. Dat dekt het doorlezen binnen de app af zonder dat er één
-webpagina per hulpmiddel gebouwd hoeft te worden. Die pdf's zijn er nog niet;
-tot die tijd staat er alleen de Word-knop.
+**Bewust geen pdf ernaast.** Dat is overwogen — een webview toont een pdf inline
+en een Word-bestand niet — maar de clusterpagina levert de keuze-informatie al,
+en dertien van de veertien hulpmiddelen zijn canvassen die je invult. Twee
+bestanden per hulpmiddel zou betekenen dat elke inhoudswijziging twee keer moet
+landen, met stille versieverschillen als iemand dat vergeet.
+
+Het veld `pdf` blijft in `tools/inhoud.py` bestaan. Vul je het, dan verschijnt
+de tweede knop vanzelf — handig voor een enkel hulpmiddel dat je uitprint of
+dat echt alleen gelezen wordt.
 
 Blijkt één hulpmiddel puur leesmateriaal dat niemand invult, maak van dát ene
 een echte pagina. Behandel dat als uitzondering, niet als beleid.
@@ -70,11 +71,6 @@ merk je pas als iemand erop klikt.
 Komt er een hulpmiddel bij, geef het dan nummer 14 en zet het achteraan — ook
 als het inhoudelijk ergens in het midden hoort. De clustering op deze site
 bepaalt de plek op de pagina; het nummer blijft de identiteit van het document.
-
-## Nog te leveren
-
-- **De pdf's** bij alle veertien documenten. Zolang die er niet zijn, staat er
-  alleen de Word-knop; er verschijnt geen "volgt nog" op de site.
 
 ## Verwijzingen in de documenten
 

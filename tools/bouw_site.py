@@ -221,8 +221,6 @@ def bouw():
                  if not h['docx']]
     leeg = [h['naam'] for c in inhoud.CLUSTERS for h in c['hulpmiddelen']
             if not (h['wanneer'] and h['oplevering'])]
-    geenpdf = [h['naam'] for c in inhoud.CLUSTERS for h in c['hulpmiddelen']
-               if h['docx'] and not h['pdf']]
 
     print('%d clusters, %d hulpmiddelen, %d bestanden gekopieerd'
           % (len(inhoud.CLUSTERS), teller, gekopieerd))
@@ -230,8 +228,6 @@ def bouw():
         print('  nog geen download: %s' % ', '.join(ontbreekt))
     if leeg:
         print('  nog in te vullen velden: %s' % ', '.join(leeg))
-    if geenpdf:
-        print('  nog geen pdf: %s' % ', '.join(geenpdf))
 
 
 STIJL = """/* Green Office — palet uit de Flutter-app (lib/theme.dart, GOColors) */
