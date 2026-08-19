@@ -68,7 +68,7 @@ naar elkaar met hun nummer: *"prioriteer met 10"*, *"zie 09"*, *"terugleggen in
 je projectvoorstel (zie 08)"*. Hernummeren breekt die verwijzingen stuk, en dat
 merk je pas als iemand erop klikt.
 
-Komt er een hulpmiddel bij, geef het dan nummer 14 en zet het achteraan — ook
+Komt er een hulpmiddel bij, geef het dan nummer 15 en zet het achteraan — ook
 als het inhoudelijk ergens in het midden hoort. De clustering op deze site
 bepaalt de plek op de pagina; het nummer blijft de identiteit van het document.
 
@@ -99,7 +99,7 @@ De site wijkt op één punt bewust af van de documenten: bij **07
 Probleemdefinitie** staat op de site "getoetst bij je opdrachtgever en/of
 clusterlead", terwijl het document alleen "opdrachtgever" zegt.
 
-## Verhouding tot de e-learning## Verhouding tot de e-learning## Verhouding tot de e-learning
+## Verhouding tot de e-learning
 
 De e-learning [AI leren gebruiken](https://fabianb88.github.io/ai-gebruiken-elearning/)
 is primair. *Slim AI gebruiken* en *AI naar website* zijn losse hulpmiddelen die
