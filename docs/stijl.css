@@ -67,6 +67,18 @@ main { padding: 2rem 1.25rem 3rem; }
   border-radius: 14px; box-shadow: var(--schaduw); padding: 1.5rem;
 }
 
+.kader {
+  margin: 1.25rem 0 0; padding: 1.1rem 1.25rem;
+  background: var(--accent-licht); border: 1px solid var(--accent-medium);
+  border-radius: 14px; max-width: 68ch;
+}
+.hint {
+  margin: -.25rem 0 1.5rem; padding: .5rem .85rem;
+  background: var(--vlak); border-left: 3px solid var(--accent-medium);
+  border-radius: 0 8px 8px 0;
+  font-size: .95rem; color: var(--tekst-secundair); max-width: 62ch;
+}
+
 /* Startpagina */
 .raster { display: grid; gap: 1rem; grid-template-columns: 1fr; margin-top: 1.5rem; }
 @media (min-width: 640px) { .raster { grid-template-columns: 1fr 1fr; } }

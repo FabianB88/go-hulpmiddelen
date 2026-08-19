@@ -154,8 +154,10 @@ def bouw():
                aantal, '' if aantal == 1 else 'en'))
         nummer += aantal
 
-    start = ('<p class="inleiding">%s</p>\n<div class="raster">%s</div>\n'
-             % (esc(inhoud.INLEIDING), ''.join(kaarten)))
+    start = ('<p class="inleiding">%s</p>\n'
+             '<aside class="kader">%s</aside>\n'
+             '<div class="raster">%s</div>\n'
+             % (esc(inhoud.INLEIDING), inhoud.KADER, ''.join(kaarten)))
     schrijf('index.html', pagina(inhoud.TITEL, start))
 
     # ------------------------------------------------------- clusterpagina's
@@ -168,9 +170,10 @@ def bouw():
         hoofd = ('<p class="kruimel"><a href="index.html">Overzicht</a> '
                  '<span aria-hidden="true">›</span> %s</p>\n'
                  '<h1 class="titel">%s</h1>\n'
-                 '<p class="inleiding">%s</p>\n%s'
+                 '<p class="inleiding">%s</p>\n'
+                 '<p class="hint">%s</p>\n%s'
                  % (esc(c['naam']), esc(c['naam']), c['intro'],
-                    ''.join(blokken)))
+                    esc(inhoud.HINT), ''.join(blokken)))
         schrijf('%s.html' % c['id'],
                 pagina('%s — %s' % (c['naam'], inhoud.TITEL), hoofd,
                        actief=c['id']))
@@ -290,6 +293,18 @@ main { padding: 2rem 1.25rem 3rem; }
 .kaart {
   background: var(--kaart); border: 1px solid var(--rand);
   border-radius: 14px; box-shadow: var(--schaduw); padding: 1.5rem;
+}
+
+.kader {
+  margin: 1.25rem 0 0; padding: 1.1rem 1.25rem;
+  background: var(--accent-licht); border: 1px solid var(--accent-medium);
+  border-radius: 14px; max-width: 68ch;
+}
+.hint {
+  margin: -.25rem 0 1.5rem; padding: .5rem .85rem;
+  background: var(--vlak); border-left: 3px solid var(--accent-medium);
+  border-radius: 0 8px 8px 0;
+  font-size: .95rem; color: var(--tekst-secundair); max-width: 62ch;
 }
 
 /* Startpagina */

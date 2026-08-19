@@ -26,19 +26,29 @@ Per hulpmiddel:
 TITEL = 'Hulpmiddelen'
 ONDERTITEL = 'Werkvormen, canvassen en handleidingen voor Green Office'
 INLEIDING = (
-    'Dertien hulpmiddelen die je erbij pakt wanneer je ze nodig hebt. Elk '
-    'hulpmiddel is een Word-bestand met uitleg en invulbare onderdelen. De '
-    'volgorde volgt de fasen van een project, maar je hoeft ze niet op volgorde '
-    'te doen en niet allemaal te gebruiken. Door alle dertien loopt dezelfde '
-    'voorbeeldcasus: een terugkerende duurzaamheidsweek die losstaat van het '
-    'onderwijs.')
+    'Dit is een databank, geen stappenplan. Dertien hulpmiddelen waaruit je '
+    'pakt wat bij jouw project past — de rest laat je staan. Elk hulpmiddel is '
+    'een Word-bestand met uitleg en invulbare onderdelen.')
+
+# Kader boven aan de startpagina. Staat los van de inleiding omdat het de
+# belangrijkste boodschap is en niet weggelezen mag worden.
+KADER = (
+    '<b>Niet elk hulpmiddel is voor iedereen nuttig.</b> Werk je zonder '
+    'opdrachtgever, dan sla je 03 over. Gaat je vraagstuk niet over een '
+    'materiaalstroom, dan heb je 05 en 07 niet nodig. Hoef je niemand te '
+    'overtuigen, dan is 08 overbodig. Kijk bij elk hulpmiddel naar '
+    '<i>Wanneer pak je dit</i> en beslis zelf of het aan de orde is. Twee tot '
+    'vier goed ingevulde hulpmiddelen zeggen meer dan dertien half ingevulde.')
+
+# Eén regel die boven elke clusterpagina komt, als herinnering.
+HINT = 'Pak hieruit wat bij je project past; je hoeft niet alles te gebruiken.'
 
 CLUSTERS = [
     {
         'id': 'aanpak',
         'naam': 'Aanpak',
         'intro': 'Waarmee je bepaalt hoe je een klus aanvliegt, richting houdt '
-                 'en afspraken maakt met je opdrachtgever.',
+                 'en afspraken maakt met je opdrachtgever of clusterlead.',
         'hulpmiddelen': [
             {'nummer': 1, 'id': 'projectaanpak', 'naam': 'Projectaanpak',
              'typering': 'Het Double Diamond als kaart voor projecten waarvan '
@@ -68,6 +78,10 @@ CLUSTERS = [
                         'project aan.',
              'oplevering': 'Ingevulde intake, vastgelegde afspraken en een '
                            'afstemmingsritme dat je deelt.',
+             'noot': 'Alleen aan de orde als er iemand is die de opdracht '
+                     'geeft — een externe opdrachtgever, of je clusterlead. '
+                     'Pak je iets op dat je zelf hebt bedacht en waar niemand '
+                     'anders over gaat, sla dit dan over.',
              'docx': '03_Opdrachtgever-afspraken.docx', 'pdf': ''},
         ],
     },
@@ -108,7 +122,7 @@ CLUSTERS = [
              'wanneer': 'Nadat je de intake en je eerste verkenning hebt '
                         'gedaan.',
              'oplevering': 'Eén scherpe probleemdefinitie en één kansvraag, '
-                           'getoetst bij je opdrachtgever.',
+                           'getoetst bij je opdrachtgever en/of clusterlead.',
              'docx': '06_Probleemdefinitie.docx', 'pdf': ''},
             {'nummer': 7, 'id': 'circulaire-denkmodellen',
              'naam': 'Circulaire denkmodellen',
