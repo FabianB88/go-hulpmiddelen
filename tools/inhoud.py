@@ -95,9 +95,6 @@ CLUSTERS = [
                         'project aan.',
              'oplevering': 'Ingevulde intake, vastgelegde afspraken en een '
                            'afstemmingsritme dat je deelt.',
-             'noot': 'Alleen voor projecten met een <b>externe '
-                     'opdrachtgever</b>. Werk je aan iets binnen het Green '
-                     'Office zelf, sla dit dan over.',
              'docx': '04_Opdrachtgever-afspraken.docx', 'pdf': ''},
             {'nummer': 5, 'id': 'stakeholderanalyse',
              'naam': 'Stakeholderanalyse',
