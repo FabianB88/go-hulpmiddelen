@@ -104,6 +104,15 @@ def downloads(h):
     return '<div class="knoppen">%s</div>' % ''.join(knoppen)
 
 
+def noot(h):
+    """Optionele kanttekening bij een hulpmiddel. HTML mag, want de tekst komt
+    uit inhoud.py en niet van buiten."""
+    tekst = h.get('noot')
+    if not tekst:
+        return ''
+    return '<p class="noot">%s</p>\n  ' % tekst
+
+
 def hulpmiddelblok(nummer, h):
     return (
         '<article class="kaart hulpmiddel" id="%s">\n'
@@ -112,10 +121,12 @@ def hulpmiddelblok(nummer, h):
         '    <h2 class="hulpmiddel__naam">%s</h2>\n'
         '  </div>\n'
         '  <p class="hulpmiddel__typering">%s</p>\n'
+        '  %s'
         '  <dl class="velden">%s%s</dl>\n'
         '  %s\n'
         '</article>\n'
         % (h['id'], nummer, esc(h['naam']), esc(h['typering']),
+           noot(h),
            veld('Wanneer pak je dit', h['wanneer']),
            veld('Wat lever je op', h['oplevering']),
            downloads(h)))
@@ -310,6 +321,12 @@ main { padding: 2rem 1.25rem 3rem; }
 .veld__label { font-weight: 600; font-size: .9rem; color: var(--tekst-secundair); }
 .veld__waarde { margin: 0; }
 .veld__waarde--leeg { color: var(--tekst-secundair); font-style: italic; }
+
+.noot {
+  margin: 0 0 1.1rem; padding: .8rem 1rem;
+  background: var(--accent-licht); border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0; font-size: .95rem; max-width: 62ch;
+}
 
 /* Knoppen */
 .knoppen { display: flex; flex-wrap: wrap; gap: .6rem; }

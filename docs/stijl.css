@@ -97,6 +97,12 @@ main { padding: 2rem 1.25rem 3rem; }
 .veld__waarde { margin: 0; }
 .veld__waarde--leeg { color: var(--tekst-secundair); font-style: italic; }
 
+.noot {
+  margin: 0 0 1.1rem; padding: .8rem 1rem;
+  background: var(--accent-licht); border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0; font-size: .95rem; max-width: 62ch;
+}
+
 /* Knoppen */
 .knoppen { display: flex; flex-wrap: wrap; gap: .6rem; }
 .knop {

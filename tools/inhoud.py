@@ -55,6 +55,10 @@ CLUSTERS = [
                         'voortgangsoverleg.',
              'oplevering': 'Een levend aanpakplan dat je meeneemt naar je '
                            'overleg.',
+             'noot': 'Dit hulpmiddel is mogelijk aanvullend op het '
+                     'PVA-werkboek, dat nog volgt. <b>Het PVA-werkboek is '
+                     'leidend</b> — wijken de twee van elkaar af, houd dan het '
+                     'werkboek aan.',
              'docx': '02_Aanpakplan.docx', 'pdf': ''},
             {'nummer': 3, 'id': 'opdrachtgever-afspraken',
              'naam': 'Opdrachtgever-afspraken',
